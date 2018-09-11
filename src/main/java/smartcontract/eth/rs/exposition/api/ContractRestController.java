@@ -27,9 +27,11 @@ public class ContractRestController {
 	@ResponseBody
 	public String postClaimRequest(@RequestBody ContractRequest contractRequest) {
 		
-		//TODO
+		LOG.info("Received New Request : " 
+		+ contractRequest.getClientWalletAddress() + " " 
+		+ contractRequest.getClientContractAddress() + " " 
+		+ contractRequest.getNote());
 		
-		LOG.info("Received contract request : " + contractRequest.getClientWalletAddress() + " " + contractRequest.getClientContractAddress() + " " + contractRequest.getNote());
 		boolean validateResponse = validator.validateRequest(contractRequest.getClientWalletAddress(), contractRequest.getClientContractAddress(), contractRequest.getNote());
 		LOG.info(Boolean.toString(validateResponse));
 		
